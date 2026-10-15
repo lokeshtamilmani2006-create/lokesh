@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lokesh T | Portfolio</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --primary: #0d6efd;
+      --primary-dark: #0a4bb6;
+      --dark: #0b132b;
+      --text: #1b1f24;
+      --muted: #5e6570;
+      --light: #edf3ff;
+      --border: #e7ebf1;
+      --shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(180deg, #f4f7fb 0%, #edf4ff 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #0b132b 0%, #1d3557 100%);
+      color: white;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .header-inner {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 20px;
+      align-items: center;
+      padding: 50px 45px;
+    }
+
+    .intro {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .badge {
+      display: inline-block;
+      width: fit-content;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.15);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: rgba(255,255,255,0.8);
+      font-size: 1.08rem;
+      max-width: 650px;
+    }
+
+    .contact-box {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 22px;
+      backdrop-filter: blur(3px);
+    }
+
+    .contact-box h3 {
+      margin: 0 0 14px 0;
+      font-size: 1.1rem;
+      color: #eaf2ff;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 10px;
+      font-size: 0.96rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      background: #7cc7ff;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 0 5px rgba(124, 199, 255, 0.12);
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 28px 24px;
+    }
+
+    .section-title {
+      margin: 0 0 18px 0;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      position: relative;
+      padding-bottom: 8px;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 999px;
+    }
+
+    .about-text {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .education-box {
+      margin-top: 16px;
+    }
+
+    .edu-item {
+      margin-bottom: 18px;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #f8fbff;
+    }
+
+    .edu-item strong {
+      display: block;
+      font-size: 1.02rem;
+      margin-bottom: 4px;
+    }
+
+    .edu-item span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill {
+      background: var(--light);
+      color: var(--primary-dark);
+      border: 1px solid #d7e8ff;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.93rem;
+    }
+
+    .project {
+      border: 1px solid var(--border);
+      background: #fbfdff;
+      border-radius: 16px;
+      padding: 16px 18px;
+      margin-bottom: 18px;
+    }
+
+    .project h4 {
+      margin: 0 0 8px 0;
+      font-size: 1.08rem;
+      color: var(--text);
+    }
+
+    .project p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .achievements ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .achievements li {
+      margin-bottom: 10px;
+    }
+
+    .side-card {
+      display: grid;
+      gap: 24px;
+    }
+
+    .mini-title {
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .profile-cta {
+      background: linear-gradient(135deg, #eaf3ff 0%, #f3f8ff 100%);
+      border: 1px solid #dbeafe;
+      border-radius: 18px;
+      padding: 18px 16px;
+      color: var(--text);
+    }
+
+    .profile-cta p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .profile-cta a {
+      display: inline-block;
+      margin-top: 12px;
+      background: var(--primary);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    .socials {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .socials a {
+      background: #f1f6ff;
+      border: 1px solid #dce9ff;
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    footer {
+      margin-top: 28px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+      padding: 20px 0 0;
+    }
+
+    @media (max-width: 840px) {
+      .header-inner, .main-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        margin-top: 12px;
+      }
+
+      .header-inner {
+        padding: 32px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-inner">
+        <div class="intro">
+          <span class="badge">Portfolio</span>
+          <h1>Lokesh T</h1>
+          <p class="subtitle">
+            Third-year B.E. student in Electronics and Communication Engineering, passionate about
+            embedded systems, IoT, and practical problem-solving through technology.
+          </p>
+        </div>
+
+        <div class="contact-box">
+          <h3>Contact Details</h3>
+          <div class="info-list">
+            <div class="info-item"><span class="dot"></span> <span>lokeshtamilmani2006@gmail.com</span></div>
+            <div class="info-item"><span class="dot"></span> <span>+91 99405 87030</span></div>
+            <div class="info-item"><span class="dot"></span>
+              <a href="https://www.linkedin.com/in/lokesh-t-3b59a432a" target="_blank" rel="noopener">
+                LinkedIn Profile
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-grid">
+      <div>
+        <section class="card">
+          <h2 class="section-title">About Me</h2>
+          <p class="about-text">
+            I am a motivated and curious Electronics and Communication Engineering student currently
+            pursuing my 3rd year of B.E. I enjoy learning emerging technologies, especially embedded
+            systems and IoT. I am eager to build innovative projects that combine hardware and software
+            to solve real-world challenges and create a positive impact.
+          </p>
+        </section>
+
+        <section class="card" style="margin-top: 28px;">
+          <h2 class="section-title">Education</h2>
+          <div class="education-box">
+            <div class="edu-item">
+              <strong>B.E. in Electronics and Communication Engineering</strong>
+              <span>Third Year</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" style="margin-top: 28px;">
+          <h2 class="section-title">Technical Skills</h2>
+          <div class="skills">
+            <span class="skill">C</span>
+            <span class="skill">Python</span>
+            <span class="skill">Embedded Systems</span>
+            <span class="skill">IoT</span>
+            <span class="skill">Circuit Fundamentals</span>
+            <span class="skill">Problem Solving</span>
+            <span class="skill">Project Development</span>
+          </div>
+        </section>
+
+        <section class="card" style="margin-top: 28px;">
+          <h2 class="section-title">Projects</h2>
+
+          <div class="project">
+            <h4>Library Management System</h4>
+            <p>
+              Developed a library management system to efficiently handle book records,
+              issue and return activities, and user information. The project demonstrates
+              my ability to build structured and practical solutions to streamline operations.
+            </p>
+          </div>
+
+          <div class="project">
+            <h4>IoT-Based Fan Controller</h4>
+            <p>
+              Designed and implemented an IoT-based smart fan controller to enable remote
+              and automated operation. This project reflects my interest in embedded systems,
+              practical electronics, and smart technology applications.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <aside class="side-card">
+        <section class="card">
+          <h2 class="section-title">Achievements</h2>
+          <div class="achievements">
+            <ul>
+              <li>Completed a yoga course with a high level of proficiency.</li>
+              <li>Actively improving technical knowledge through project-based learning.</li>
+              <li>Focused on building practical skills in electronics, programming, and system design.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="mini-title">Availability</div>
+          <div class="profile-cta">
+            <p>
+              Open to internships, project collaborations, and opportunities in electronics,
+              IoT, and embedded systems where I can learn, contribute, and grow.
+            </p>
+            <a href="mailto:lokeshtamilmani2006@gmail.com">Contact Me</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="mini-title">Social Links</div>
+          <div class="socials">
+            <a href="https://www.linkedin.com/in/lokesh-t-3b59a432a" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:lokeshtamilmani2006@gmail.com">Email</a>
+          </div>
+        </section>
+      </aside>
+    </div>
+
+    <footer>
+      © 2025 Lokesh T | Professional Portfolio
+    </footer>
+  </div>
+</body>
+</html>
